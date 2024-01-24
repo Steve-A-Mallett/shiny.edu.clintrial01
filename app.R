@@ -21,9 +21,11 @@ ui <- fluidPage(
                column(6,
                h3("Make a New Asthma Medicine"),
                h4("Have you ever wondered how statistics could be useful in the real world?"),
-               h4("Imagine that scientists have produced a new type of asthma inhaler. 
-                  Any new medicine first needs to be tested in a clinical trial to be sure it works and hasn't any serious side effects."),
-               h4("In this app we're going to learn how stats can be used to analyse the results of a clinical trial, and make a decision on whether or not the medicine should be given a licence."),
+               h4("In this app we're going to imagine you're a statistician working for a pharmaceutical company developing a new asthma medicine. 
+               Before a medicine is made available to the public, the company needs to conduct a clinical trial to test whether the drug works (and investigate any side effects).
+               The results will be submitted to a health authority, who may grant the medicine a marketing licence if the results are postive."),
+               h4("You might think that statistics is all about facts and figures, but statisticians in the pharmaceutical industry are involved in making
+               critical decisions, as we shall see."),
                h4("Are you ready to be a pharmaceutical statistician? Click on 'Lets Go' to continue..."),
                ),
                column(3,
@@ -96,7 +98,7 @@ ui <- fluidPage(
                             h4("--Variability=45"),
                             h4("What happens to the colour of the bar? In this app, if the bar goes red it indicates a 'False Negative'. This means that even though in reality the drug works, 
                                the study has drawn a wrong conclusion. The evidence wasn't convincing enough to conclude that the medicine works. (Unlike this app, in a real clinical trial
-                               we wouldn't know trhe truth about whether the medicine works.)"), 
+                               we wouldn't know the truth about whether the medicine works.)"), 
                             h4("A false negative is definitely a bad outcome! See if you can fix the problem by increasing the number of patients. One of the jobs of the statistician is to make sure we have enough patients in the study to avoid this happening. 
                                Let's go onto Step 4 to investigate further."),
 
@@ -107,14 +109,14 @@ ui <- fluidPage(
                           fluidRow(
                    h4("Now imagine we re-run the study several times, with the same settings. The confidence intervals are shown below."),
                    h4("Do we get the same result every time? Another job of a statistian
-                      is to understand how much the results are likely to vary from study to study, and how often we see a false negative result."),
+                      is to understand how much the results are expected to vary from study to study, and how often we're likely to see a false negative result."),
                    h4("Now try changing the sliders to the following settings:"),
                    h4("--How Well Does The Medicine Work? = 0"),   
                    h4("--How Many Patients? = 100"),
                    h4("--Variability=20"),
-                   h4("Here we are simulating a situation where the new medicine dosen't work. Did you notice any red confidence intervals? (If not, try hitting the Refresh button a few times,)
+                   h4("Here we're simulating a situation where the new medicine dosen't work. Did you notice any red confidence intervals? (If not, try hitting the Refresh button a few times.)
                       This is an example of a False Positive, i.e. the confidence interval is entirely to the left or right of the black reference line, even though the drug doesn't work. This is a serious
-                      situation, because we don't want a medicine that doesn't work to be given to patients (due to possible side effects). Another job of the statistician is to make sure that
+                      situation, because we don't want a medicine that doesn't work to be given a marketing licence (due to possible side effects). Another job of the statistician is to make sure that
                       a false positive result is highly unlikely."),
                    h4("So we've seen that statistics plays an important role in developing new medicines, and in helping pharmaceutical companies and health authorities make the right
                       decisions for patients."),
