@@ -125,9 +125,27 @@ ui <- fluidPage(
                           plotOutput(outputId = "myPlot4", width = "800px", height = "800px"))
                  ))
                )
+             ),
+    tabPanel(h2("Sign Me Up"),
+             fluidRow(
+                h3("How to become a Statistician or Statistical Programmer"),
+                h4("There is not just one route to becoming a medical statistician or statistical programmer in the pharmaceutical industry. There are many valuable skills and experiences
+                you can bring to a company. However, all statisticians and programmers need to firstly be good mathematicians, so it is important to choose A levels carefully. 
+                Both medical statisticians and programmers will need to go to university to get their first degree (bachelor’s degree [BSc]). Medical statisticians usually also need a second 
+                degree (master’s degree [Msc or MMath], or sometimes even a doctorate [PhD]) in statistics or medical statistics."),
+                h4("Explore the profiles below to see examples of how you can develop mathematical, statistical and scientific skills that will be invaluable for building your career.")
+             ),
+             fluidRow(
+               column(6, imageOutput("profile1")),
+               column(6, imageOutput("profile2"))
+               ),
+             fluidRow(
+               column(6, imageOutput("profile3"),)
+               
              )
           )
         )
+)
   
 server <- function(input, output, session) {
   
@@ -196,16 +214,34 @@ server <- function(input, output, session) {
     )
   }, deleteFile = FALSE)
   
-  output$photo2 <- renderImage({
+  output$profile1 <- renderImage({
     list(
-      src = "photos/jury.jpg",
+      src = "photos/profile1.jpg",
       contentType = "image/jpeg",
-      width = 125,
-      height = 100
+      width = 750,
+      height = 450
     )
   }, deleteFile = FALSE)
   
-     output$myPlot1 <- renderPlot({
+  output$profile2 <- renderImage({
+    list(
+      src = "photos/profile2.png",
+      contentType = "image/png",
+      width = 750,
+      height = 450
+    )
+  }, deleteFile = FALSE)
+
+  output$profile3 <- renderImage({
+    list(
+      src = "photos/profile3.jpg",
+      contentType = "image/jpg",
+      width = 750,
+      height = 450
+    )
+  }, deleteFile = FALSE)
+  
+       output$myPlot1 <- renderPlot({
 
     df <- my_data1()
     
