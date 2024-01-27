@@ -9,9 +9,9 @@ library(reshape2)
 
 ui <- fluidPage(
   
-  tags$style("h1 { color: #0570b0;}"),
-  tags$style("h2 { color: #0570b0;}"),
-  tags$style("h3 { color: #0570b0;}"),
+  tags$style("h1 { color: #084594;}"),
+  tags$style("h2 { color: #084594;}"),
+  tags$style("h3 { color: #4292c6;}"),
   tags$style("h4 { color: black;}"),
   
   tabsetPanel(
@@ -63,6 +63,7 @@ ui <- fluidPage(
                  id = "panel",
                  tabPanel(h4("Step 1: Get Some Patients"),
                           fluidRow(
+                              h3("Get Some Patients"),
                               h4("The first step is to recruit some asthma patients into the study,
                               and randomly assign each patient to one of two groups: the new medicine (orange) or a control group (green).
                                  Patients further to the right on the below figure had more of an improvement in their asthma."),
@@ -79,6 +80,7 @@ ui <- fluidPage(
                           ),
                  tabPanel(h4("Step 2: Look at the Data"),
                           fluidRow(
+                            h3("Look at the Data"),
                             h4("This figure provides allows us to compare the results for the two treatment groups. If, for example, the orange curve is shifted
                                to the right compared to the green curve, it shows that the medicine might be effective compared to the control group."),
                             h4(""),
@@ -88,8 +90,9 @@ ui <- fluidPage(
                            plotOutput(outputId = "myPlot2", width = "800px",
                                      ))
                           ),
-                 tabPanel(h4("Step 3: Making a Decision?"), 
+                 tabPanel(h4("Step 3: Making a Decision"), 
                           fluidRow(
+                           h3("Making a Decision"),
                            h4("To decide whether or not the medicine works, we can use a Confidence Interval (shown below as a coloured bar). If this bar is entirely to the right
                                of the black line, we have strong enough evidence to conclude that the medicine works."),
                             h4("Try changing the sliders to the following settings:"),
@@ -107,6 +110,7 @@ ui <- fluidPage(
                  ),
                  tabPanel(h4("Step 4:Can We Trust the Results?"),
                           fluidRow(
+                            h3("Can We Trust the Results?"),
                    h4("Now imagine we re-run the study several times, with the same settings. The confidence intervals are shown below."),
                    h4("Do we get the same result every time? Another job of a statistian
                       is to understand how much the results are expected to vary from study to study, and how often we're likely to see a false negative result."),
@@ -126,7 +130,7 @@ ui <- fluidPage(
                  ))
                )
              ),
-    tabPanel(h2("Sign Me Up"),
+    tabPanel(h2("Tell Me More"),
              fluidRow(
                 h3("How to become a Statistician or Statistical Programmer"),
                 h4("There is not just one route to becoming a medical statistician or statistical programmer in the pharmaceutical industry. There are many valuable skills and experiences
@@ -136,13 +140,8 @@ ui <- fluidPage(
                 h4("Explore the profiles below to see examples of how you can develop mathematical, statistical and scientific skills that will be invaluable for building your career.")
              ),
              fluidRow(
-               column(6, imageOutput("profile1")),
-               column(6, imageOutput("profile2"))
+               column(6, imageOutput("profiles"))
                ),
-             fluidRow(
-               column(6, imageOutput("profile3"),)
-               
-             )
           )
         )
 )
@@ -214,30 +213,12 @@ server <- function(input, output, session) {
     )
   }, deleteFile = FALSE)
   
-  output$profile1 <- renderImage({
+  output$profiles <- renderImage({
     list(
-      src = "photos/profile1.jpg",
+      src = "photos/profiles.jpg",
       contentType = "image/jpeg",
       width = 750,
-      height = 450
-    )
-  }, deleteFile = FALSE)
-  
-  output$profile2 <- renderImage({
-    list(
-      src = "photos/profile2.png",
-      contentType = "image/png",
-      width = 750,
-      height = 450
-    )
-  }, deleteFile = FALSE)
-
-  output$profile3 <- renderImage({
-    list(
-      src = "photos/profile3.jpg",
-      contentType = "image/jpg",
-      width = 750,
-      height = 450
+      height = 1500
     )
   }, deleteFile = FALSE)
   
